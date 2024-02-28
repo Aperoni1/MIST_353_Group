@@ -1,4 +1,4 @@
-CREATE PROCEDURE [dbo].[GetNearestPark]
+CREATE PROCEDURE spGetNearestPark
     @inputLat NVARCHAR(50),
     @inputLong NVARCHAR(50)
 AS
@@ -19,4 +19,4 @@ BEGIN
 END;
 GO
 
-/*exec [dbo].[GetNearestPark] @inputLat = '1', @inputLong = '1';
+/*exec [dbo].[GetNearestPark] @inputLat = '1', @inputLong = '1';*/
