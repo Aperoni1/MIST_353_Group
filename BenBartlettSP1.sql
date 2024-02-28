@@ -1,4 +1,4 @@
-CREATE PROC GetWeatherByState
+CREATE PROC spGetWeatherByState
 	@State NVARCHAR(50)
 AS
 BEGIN
