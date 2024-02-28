@@ -20,7 +20,7 @@ This web application (will) features an interactive map users can click on to fi
      - Takes latitude and longitude input and finds nearest park
 
 
-# References:
+# References
   W3schools 
   ChatGPT: 
    - Prompt 1 Based on this SQL database, can you help me add data to each table. 
