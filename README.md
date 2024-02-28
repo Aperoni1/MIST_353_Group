@@ -7,18 +7,20 @@ This web application (will) features an interactive map users can click on to fi
 
 Stored Procedures:
 1) spGetWeatherByLocation
-   -Takes an input and finds location that matches those weather conditions.
+      - Takes an input and finds location that matches those weather conditions.
   
 
 2) spGetHumidityByLocation
      - takes an input and then finds location based on humidity. 
 
+3) spGetWeatherByState
+      - Provides weather data by state.
+
+4) spGetNearestPark
+     - Takes latitude and longitude input and finds nearest park
 
 
-
-
-
-References:
+# References:
   W3schools 
   ChatGPT: 
    - Prompt 1 Based on this SQL database, can you help me add data to each table. 
