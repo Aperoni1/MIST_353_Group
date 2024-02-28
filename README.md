@@ -6,18 +6,24 @@ This web application (will) features an interactive map users can click on to fi
 
 
 # Stored Procedures
-1) spGetWeatherByLocation
-      - Takes an input and finds location that matches those weather conditions.
+1) spGetWeatherByLocatio
+      - Takes an input and finds location that matches those weather conditions
   
 
 2) spGetHumidityByLocation
-     - takes an input and then finds location based on humidity. 
+     - Takes an input and then finds location based on humidity
 
 3) spGetWeatherByState
-      - Provides weather data by state.
+      - Provides weather data by state
 
 4) spGetNearestPark
      - Takes latitude and longitude input and finds nearest park
+  
+5) AlexPeroniSPs
+      - Inserts new entry into Fire_Warning table
+  
+6) AlexPeroniSP2
+      - Finds all of the locations that have an Active Fire Warning
 
 
 # References
