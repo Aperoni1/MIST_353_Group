@@ -5,7 +5,7 @@ This web application (will) features an interactive map users can click on to fi
 
 
 
-Stored Procedures:
+# Stored Procedures
 1) spGetWeatherByLocation
       - Takes an input and finds location that matches those weather conditions.
   
