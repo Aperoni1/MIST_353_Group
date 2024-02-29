@@ -1,12 +1,11 @@
 # MIST_353_Group
 
 This web application (will) features an interactive map users can click on to find nearby trails, wildfire risks, and weather in the surrounding area.
-.
 
 
 
 # Stored Procedures
-1) spGetWeatherByLocatio
+1) spGetWeatherByLocation
       - Takes an input and finds location that matches those weather conditions
   
 
