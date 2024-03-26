@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MIST_353_Group_API
+namespace MIST_353_Group_API.Entities
 {
     public class FireWarning
     {
