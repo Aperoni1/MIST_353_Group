@@ -1,8 +1,21 @@
+using Microsoft.EntityFrameworkCore;
+using MIST_353_Group_API.Data;
+using MIST_353_Group_API.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<IWeatherService, WeatherService>();
+builder.Services.AddDbContext<DbContextClass>(options =>
+{
+
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
