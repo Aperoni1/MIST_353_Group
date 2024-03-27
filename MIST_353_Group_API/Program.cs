@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using MIST_353_Group_API.Data;
-using MIST_353_Group_API.Repositories;
+using MIST_353_Group_API.Repositories; 
+using MIST_353_Group_API.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
