@@ -6,10 +6,12 @@ namespace MIST_353_Group_API.Entities
     {
         [Key]
         public int WeatherID { get; set; }
-        public int LocationID { get; set; } // Added Foreign Key
+        public int LocationID { get; set; } // Foreign Key
         public Location Location { get; set; }
-        public int FireWarningID { get; set; }  // Added Foreign Key
-        public FireWarning FireWarning { get; set; }
+
+        // Navi for FireWarnings 
+        public ICollection<FireWarning> FireWarnings { get; set; }
+
         public decimal Temperature { get; set; }
         public decimal Humidity { get; set; }
         public decimal WindSpeed { get; set; }
