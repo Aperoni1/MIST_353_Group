@@ -1,4 +1,4 @@
-CREATE PROCEDURE CarterProctorSPs --GetParkName
+CREATE PROCEDURE CarterProctorSPs_GetParkName
     @LocationID INT
 AS
 BEGIN
@@ -6,7 +6,7 @@ BEGIN
 
     -- Get the park name for the given location
     SELECT @ParkName = [ParkName]
-    FROM [dbo].[Park]
+    FROM [dbo].[Location]
     WHERE [LocationID] = @LocationID;
 
     -- Return the park name
