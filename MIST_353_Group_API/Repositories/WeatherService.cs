@@ -4,7 +4,6 @@ using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using MIST_353_Group_API.Data;
 
-
 namespace MIST_353_Group_API.Repositories
 {
     public class WeatherService : IWeatherService
@@ -16,33 +15,21 @@ namespace MIST_353_Group_API.Repositories
             _dbContextClass = dbContextClass;
         }
 
-        public async Task<string> GetParkStatus(int locationId)
+        public async Task<string> GetParkName(int locationId)
         {
-            var param = new SqlParameter("@LocationID", locationId);
-            var result = await _dbContextClass.Weather
-                .FromSqlRaw("EXEC CarterProctorSPs @LocationID", param)
-                .AsQueryable()
-                .Select(p => p.ParkStatus)
+            var parkName = await _dbContextClass.Location
+                .FromSqlInterpolated($"EXEC CarterProctorSPs {locationId}")
+                .Select(l => l.ParkName)
                 .FirstOrDefaultAsync();
 
-            if (result != null)
-            {
-                return result;
-            }
-            else
-            {
-                return null;
-            }
+            return parkName;
         }
 
         public async Task<Weather> GetWeatherByLocation(int locationId)
         {
-            var param = new SqlParameter("@LocationID", locationId);
             var result = await _dbContextClass.Weather
-                .FromSqlRaw("EXEC CarterProctorSP2 @LocationID", param)
-                .AsQueryable()
+                .FromSqlInterpolated($"EXEC CarterProctorSP2 {locationId}")
                 .FirstOrDefaultAsync();
-
 
             return result;
         }

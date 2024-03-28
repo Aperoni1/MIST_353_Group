@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MIST_353_Group_API.Repositories;
+using System.Threading.Tasks;
 
 namespace MIST_353_Group_API.Controllers
 {
@@ -20,17 +21,24 @@ namespace MIST_353_Group_API.Controllers
         {
             var weather = await weatherService.GetWeatherByLocation(LocationID);
 
+            if (weather == null)
+            {
+                return NotFound();
+            }
 
             return Ok(weather);
         }
 
         // Park status by LocationID 
         [HttpGet("ParkStatus/{LocationID}")]
-        public async Task<IActionResult> GetParkStatus(int LocationID)
+        public async Task<IActionResult> GetParkName(int LocationID)
         {
-            var parkStatus = await weatherService.GetParkStatus(LocationID);
+            var parkStatus = await weatherService.GetParkName(LocationID);
 
-           
+            if (parkStatus == null)
+            {
+                return NotFound();
+            }
 
             return Ok(parkStatus);
         }
