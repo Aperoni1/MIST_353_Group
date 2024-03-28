@@ -1,0 +1,6 @@
+CREATE PROCEDURE GetWeatherByID
+    @WeatherID INT
+AS
+BEGIN
+    SELECT * FROM [dbo].[Weather] WHERE [WeatherID] = @WeatherID;
+END;
