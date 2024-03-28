@@ -1,3 +1,5 @@
+USE [M353Group];
+
 -- Inserting data into the Location table
 INSERT INTO [dbo].[Location] ([Address], [City], [State], [Zip], [Long], [Lat], [ParkName])
 VALUES
