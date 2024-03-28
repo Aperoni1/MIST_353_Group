@@ -16,19 +16,22 @@ namespace MIST_353_Group_API.Repositories
             _dbContextClass = dbContextClass;
         }
 
-        public async Task<List<Weather>> CarterProctorSP2(int LocationID)
+        public async Task<string> CarterProctorSP2(int LocationID)
         {
             var param = new SqlParameter("@LocationID", LocationID);
-            return await _dbContextClass.Weather.FromSqlRaw("exec CarterProctorSP3 @WeatherID", param).ToListAsync();
+            var result = await _dbContextClass.Database.ExecuteSqlRawAsync("exec CarterProctorSP2 @LocationID", param);
+            return result.ToString();
         }
 
-        public async Task<List<Location>>CarterProctorSPs(int LocationID)
+
+        public async Task<string> CarterProctorSPs(int LocationID)
         {
             var param = new SqlParameter("@LocationID", LocationID);
-            return await _dbContextClass.Location.FromSqlRaw("exec CarterProctorSPs @LocationID", param).ToListAsync();
-
+            var result = await _dbContextClass.Database.ExecuteSqlRawAsync("exec CarterProctorSPs @LocationID", param);
+            return result.ToString();
         }
 
-      
+
+
     }
 }

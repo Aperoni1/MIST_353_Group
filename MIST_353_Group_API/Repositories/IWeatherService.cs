@@ -1,10 +1,12 @@
-﻿using MIST_353_Group_API.Entities;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using MIST_353_Group_API.Entities;
 
 namespace MIST_353_Group_API.Repositories
 {
     public interface IWeatherService
     {
-       public Task<List<Weather>> CarterProctorSP2(int WeatherID); // Weather Status by ID SP
-       public Task<List<Location>> CarterProctorSPs(int LocationID); // Park Status SP
+        Task<string> CarterProctorSP2(int LocationID); // Weather Status by LocationID SP
+        Task<string> CarterProctorSPs(int LocationID); // Park Status SP
     }
 }
