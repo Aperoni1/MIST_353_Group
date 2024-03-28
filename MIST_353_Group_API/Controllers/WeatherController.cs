@@ -14,11 +14,11 @@ namespace MIST_353_Group_API.Controllers
             this.weatherService = weatherService;
         }
 
-        // API to Get Weather by ID
+        // API to Get Weather by Location
         [HttpGet("WeatherStatus/{WeatherID}")]
-        public async Task<IActionResult> GetWeatherByID(int WeatherID)
+        public async Task<IActionResult> GetWeatherByID(int LocationID)
         {
-            var weather = await weatherService.CarterProctorSP3(WeatherID);
+            var weather = await weatherService.CarterProctorSP2(LocationID);
 
             if (weather == null)
             {
