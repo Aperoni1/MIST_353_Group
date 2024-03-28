@@ -18,7 +18,7 @@ namespace MIST_353_Group_API.Controllers
         }
 
         // API to Get Weather by ID
-        [HttpGet("{WeatherID}")]
+        [HttpGet("WeatherStatus/{WeatherID}")]
         public async Task<IActionResult> GetWeatherByID(int WeatherID)
         {
             var weather = await weatherService.CarterProctorSP3(WeatherID);
