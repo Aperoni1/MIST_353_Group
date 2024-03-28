@@ -20,7 +20,7 @@ namespace MIST_353_Group_API.Repositories
         {
             var param = new SqlParameter("@LocationID", locationId);
             var result = await _dbContextClass.Weather
-                .FromSqlRaw("EXEC GetParkStatus @LocationID", param)
+                .FromSqlRaw("EXEC CarterProctorSPs @LocationID", param)
                 .FirstOrDefaultAsync();
 
             if (result != null)
@@ -37,7 +37,7 @@ namespace MIST_353_Group_API.Repositories
         {
             var param = new SqlParameter("@LocationID", locationId);
             var result = await _dbContextClass.Weather
-                .FromSqlRaw("EXEC GetWeatherByLocation @LocationID", param)
+                .FromSqlRaw("EXEC CarterProctorSP2 @LocationID", param)
                 .FirstOrDefaultAsync();
 
             return result;

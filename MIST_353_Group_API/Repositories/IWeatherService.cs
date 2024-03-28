@@ -6,8 +6,9 @@ namespace MIST_353_Group_API.Repositories
 {
     public interface IWeatherService
     {
-        Task<string> GetWeatherStatusByLocation(int locationId); // Weather Status by LocationID SP
         Task<string> GetParkStatus(int locationId); // Park Status SP
+        Task<Weather> GetWeatherByLocation(int locationId); // Weather by Location ID SP
     }
 }
+
 

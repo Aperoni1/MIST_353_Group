@@ -18,7 +18,7 @@ namespace MIST_353_Group_API.Controllers
         [HttpGet("WeatherStatus/{LocationID}")]
         public async Task<IActionResult> GetWeatherByID(int LocationID)
         {
-            var weather = await weatherService.CarterProctorSP2(LocationID);
+            var weather = await weatherService.GetWeatherByLocation(LocationID);
 
             if (weather == null)
             {
@@ -32,7 +32,7 @@ namespace MIST_353_Group_API.Controllers
         [HttpGet("ParkStatus/{LocationID}")]
         public async Task<IActionResult> GetParkStatus(int LocationID)
         {
-            var parkStatus = await weatherService.CarterProctorSPs(LocationID);
+            var parkStatus = await weatherService.GetParkStatus(LocationID);
 
             if (parkStatus == null)
             {
