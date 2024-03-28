@@ -1,4 +1,4 @@
-CREATE PROCEDURE GetParkStatus
+CREATE PROCEDURE CarterProctorSPs --Get Park Status
     @LocationID INT
 AS
 BEGIN
