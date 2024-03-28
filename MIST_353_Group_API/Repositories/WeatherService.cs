@@ -5,26 +5,27 @@ using Microsoft.EntityFrameworkCore;
 using MIST_353_Group_API.Data;
 
 
- 
-
 namespace MIST_353_Group_API.Repositories
 {
     public class WeatherService : IWeatherService
     {
-        private readonly DbContextClass  _dbcontextClass;
-        public WeatherService(DbContextClass dbcontextClass) 
+        private readonly DbContextClass _dbContextClass;
+
+        public WeatherService(DbContextClass dbContextClass)
         {
-            _dbcontextClass = dbcontextClass;
+            _dbContextClass = dbContextClass;
         }
 
-        public async Task<List<Weather>> CarterProctorSPs(int WeatherID)//SPCarter1 Humidity SP
+        public async Task<List<Weather>> CarterProctorSP3(int WeatherID)
         {
             var param = new SqlParameter("@WeatherID", WeatherID);
-            var humidityDetails = await Task.Run(() => _dbcontextClass.Weather.FromSqlRaw("exec CarterProctorSPs @WeatherID", param).ToListAsync());
-            return humidityDetails;
+            return await _dbContextClass.Weather.FromSqlRaw("exec CarterProctorSP3 @WeatherID", param).ToListAsync();
+        }
 
-        }    
-
-
+        public async Task<List<Location>>CarterProctorSPs(int LocationID)
+        {
+            var param = new SqlParameter("@LocationID", LocationID);
+            return await _dbContextClass.Location.FromSqlRaw("exec CarterProctorSPs @LocationID", param).ToListAsync();
+        }
     }
 }

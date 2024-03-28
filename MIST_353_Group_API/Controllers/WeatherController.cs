@@ -17,17 +17,32 @@ namespace MIST_353_Group_API.Controllers
             this.weatherService = weatherService;
         }
 
+        // API to Get Weather by ID
         [HttpGet("{WeatherID}")]
-        public async Task<IActionResult> CarterProctorSPs(int WeatherID)
+        public async Task<IActionResult> GetWeatherByID(int WeatherID)
         {
-            var humidityDetails = await weatherService.CarterProctorSPs(WeatherID);
+            var weather = await weatherService.CarterProctorSP3(WeatherID);
 
-            if (humidityDetails == null)
+            if (weather == null)
             {
                 return NotFound();
             }
 
-            return Ok(humidityDetails);
+            return Ok(weather);
+        }
+
+        // Park status by LocationID 
+        [HttpGet("ParkStatus/{LocationID}")]
+        public async Task<IActionResult> GetParkStatus(int LocationID)
+        {
+            var parkStatus = await weatherService.CarterProctorSPs(LocationID);
+
+            if (parkStatus == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(parkStatus);
         }
     }
 }
