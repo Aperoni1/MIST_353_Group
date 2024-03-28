@@ -1,4 +1,4 @@
-CREATE PROCEDURE GetWeatherByLocation
+CREATE PROCEDURE CarterProctorSP2 --GetWeatherByLocation
     @LocationID INT
 AS
 BEGIN
@@ -17,7 +17,7 @@ BEGIN
     WHERE 
         [LocationID] = @LocationID;
 
-  
+    -- Return weather details
     SELECT 
         @Temperature AS Temperature,
         @Humidity AS Humidity,
