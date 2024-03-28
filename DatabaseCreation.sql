@@ -1,3 +1,6 @@
+CREATE DATABASE [M353Group];
+GO
+
 USE [M353Group];
 GO
 
