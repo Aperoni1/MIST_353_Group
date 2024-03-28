@@ -3,14 +3,11 @@ CREATE PROCEDURE CarterProctorSP2 --GetWeatherByLocation
 AS
 BEGIN
     DECLARE @Temperature DECIMAL(10, 2)
-    DECLARE @Humidity DECIMAL(5, 2)
-    DECLARE @WindSpeed DECIMAL(10, 2)
     DECLARE @WeatherCondition NVARCHAR(100)
 
+    -- Get the weather details for the given location
     SELECT 
         @Temperature = [Temperature],
-        @Humidity = [Humidity],
-        @WindSpeed = [WindSpeed],
         @WeatherCondition = [WeatherCondition]
     FROM 
         [dbo].[Weather]
@@ -20,7 +17,5 @@ BEGIN
     -- Return weather details
     SELECT 
         @Temperature AS Temperature,
-        @Humidity AS Humidity,
-        @WindSpeed AS WindSpeed,
         @WeatherCondition AS WeatherCondition;
 END;
