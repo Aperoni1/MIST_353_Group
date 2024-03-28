@@ -1,9 +1,9 @@
-CREATE PROCEDURE CarterProctorSP2 --GetWeatherByLocation
+CREATE PROCEDURE CarterProctorSP2_GetWeatherByLocation
     @LocationID INT
 AS
 BEGIN
-    DECLARE @Temperature DECIMAL(10, 2)
-    DECLARE @WeatherCondition NVARCHAR(100)
+    DECLARE @Temperature DECIMAL(10, 2);
+    DECLARE @WeatherCondition NVARCHAR(100);
 
     -- Get the weather details for the given location
     SELECT 
@@ -19,3 +19,4 @@ BEGIN
         @Temperature AS Temperature,
         @WeatherCondition AS WeatherCondition;
 END;
+
