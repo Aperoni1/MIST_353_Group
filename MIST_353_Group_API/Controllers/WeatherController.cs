@@ -20,10 +20,6 @@ namespace MIST_353_Group_API.Controllers
         {
             var weather = await weatherService.GetWeatherByLocation(LocationID);
 
-            if (weather == null)
-            {
-                return NotFound();
-            }
 
             return Ok(weather);
         }
@@ -34,10 +30,7 @@ namespace MIST_353_Group_API.Controllers
         {
             var parkStatus = await weatherService.GetParkStatus(LocationID);
 
-            if (parkStatus == null)
-            {
-                return NotFound();
-            }
+           
 
             return Ok(parkStatus);
         }

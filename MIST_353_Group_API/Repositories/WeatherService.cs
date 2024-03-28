@@ -21,15 +21,17 @@ namespace MIST_353_Group_API.Repositories
             var param = new SqlParameter("@LocationID", locationId);
             var result = await _dbContextClass.Weather
                 .FromSqlRaw("EXEC CarterProctorSPs @LocationID", param)
+                .AsQueryable()
+                .Select(p => p.ParkStatus)
                 .FirstOrDefaultAsync();
 
             if (result != null)
             {
-                return result.ParkStatus;
+                return result;
             }
             else
             {
-                return null; // Or any default value you want to return if no data is found
+                return null;
             }
         }
 
@@ -38,7 +40,9 @@ namespace MIST_353_Group_API.Repositories
             var param = new SqlParameter("@LocationID", locationId);
             var result = await _dbContextClass.Weather
                 .FromSqlRaw("EXEC CarterProctorSP2 @LocationID", param)
+                .AsQueryable()
                 .FirstOrDefaultAsync();
+
 
             return result;
         }
