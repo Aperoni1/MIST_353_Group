@@ -1,8 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MIST_353_Group_API.Entities;
 using MIST_353_Group_API.Repositories;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace MIST_353_Group_API.Controllers
 {
