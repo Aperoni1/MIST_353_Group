@@ -1,14 +1,18 @@
-CREATE PROCEDURE CarterProctorSPs_GetParkName
-    @LocationID INT
+CREATE PROCEDURE CarterProctorSPs --Weather by park Name
+    @ParkName NVARCHAR(100)
 AS
 BEGIN
-    DECLARE @ParkName NVARCHAR(100);
+    SET NOCOUNT ON;
 
-    -- Get the park name for the given location
-    SELECT @ParkName = [ParkName]
-    FROM [dbo].[Location]
-    WHERE [LocationID] = @LocationID;
+    SELECT *
+    FROM Location
+    WHERE ParkName = @ParkName;
 
-    -- Return the park name
-    SELECT @ParkName AS ParkName;
+    SELECT *
+    FROM Weather
+    WHERE LocationID IN (SELECT LocationID FROM Location WHERE ParkName = @ParkName);
+
+    SELECT *
+    FROM Fire_Warning
+    WHERE LocationID IN (SELECT LocationID FROM Location WHERE ParkName = @ParkName);
 END;
