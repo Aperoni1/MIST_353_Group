@@ -1,16 +1,16 @@
 # MIST_353_Group
 
-This web application (will) features an interactive map users can click on to find nearby trails, wildfire risks, and weather in the surrounding area.
+This web application (will) features an interactive map users can click on to find nearby trails, wildfire risks, and weather in the surrounding area. It will also be able to display the current weather by Park name.
 
 
 
 # Stored Procedures
-1) spGetWeatherByLocation
-      - Takes an input and finds location that matches those weather conditions
+1) CarterProctorSP2
+      - Takes a location by ID and returns the weather condtions 
   
 
-2) spGetHumidityByLocation
-     - Takes an input and then finds location based on humidity
+2) CarterProctorSPs
+     - Takes an park name and returns the weather conditions 
 
 3) spGetWeatherByState
       - Provides weather data by state
