@@ -7,7 +7,7 @@ namespace MIST_353_Group_API.Repositories
 {
     public interface IWeatherService
     {
-        Task<string> GetParkName(int locationId); // Park Name by Location ID SP
+        Task<Weather> GetWeatherByParkName(string parkName); // Weather by Park Name SP
 
         Task<Weather> GetWeatherByLocation(int locationId); // Weather by Location ID SP
     }
