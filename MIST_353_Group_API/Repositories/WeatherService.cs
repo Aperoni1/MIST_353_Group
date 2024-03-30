@@ -1,6 +1,4 @@
-﻿
-using MIST_353_Group_API.Entities;
-using Microsoft.Data.SqlClient;
+﻿using MIST_353_Group_API.Entities;
 using Microsoft.EntityFrameworkCore;
 using MIST_353_Group_API.Data;
 
@@ -15,14 +13,13 @@ namespace MIST_353_Group_API.Repositories
             _dbContextClass = dbContextClass;
         }
 
-        public async Task<string> GetParkName(int locationId)
+        public async Task<Weather> GetWeatherByParkName(string parkName)
         {
-            var parkName = await _dbContextClass.Location
-                .FromSqlInterpolated($"EXEC CarterProctorSPs {locationId}")
-                .Select(l => l.ParkName)
+            var result = await _dbContextClass.Weather
+                .FromSqlInterpolated($"EXEC CarterProctorSPs @ParkName={parkName}")
                 .FirstOrDefaultAsync();
 
-            return parkName;
+            return result;
         }
 
         public async Task<Weather> GetWeatherByLocation(int locationId)

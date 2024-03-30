@@ -16,7 +16,7 @@ namespace MIST_353_Group_API.Controllers
         }
 
         // API to Get Weather by Location
-        [HttpGet("WeatherStatus/{LocationID}")]
+        [HttpGet("Weather by Location/{LocationID}")]
         public async Task<IActionResult> GetWeatherByID(int LocationID)
         {
             var weather = await weatherService.GetWeatherByLocation(LocationID);
@@ -29,18 +29,18 @@ namespace MIST_353_Group_API.Controllers
             return Ok(weather);
         }
 
-        // Park status by LocationID 
-        [HttpGet("ParkStatus/{LocationID}")]
-        public async Task<IActionResult> GetParkName(int LocationID)
+        // API to Get Weather by Park Name
+        [HttpGet("Weather By Park Name")]
+        public async Task<IActionResult> GetWeatherByParkName([FromQuery] string parkName)
         {
-            var parkStatus = await weatherService.GetParkName(LocationID);
+            var weather = await weatherService.GetWeatherByParkName(parkName);
 
-            if (parkStatus == null)
+            if (weather == null)
             {
                 return NotFound();
             }
 
-            return Ok(parkStatus);
+            return Ok(weather);
         }
     }
 }
