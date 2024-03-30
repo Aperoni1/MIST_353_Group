@@ -6,7 +6,7 @@ namespace MIST_353_Group_API.Repositories
 {
     public interface IParkLocationService
     {
-        public Task<Location> GetNearestPark(int inputLat, int inputLon);
+        public Task<Location> GetNearestPark(string inputLat, string inputLon);
 
 
 

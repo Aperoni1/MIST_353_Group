@@ -16,7 +16,7 @@ namespace MIST_353_Group_API.Controllers
             this.ParkLocationService = ParkLocationService;
         }
         [HttpGet("{inputLat}/{inputLon}")]
-        public async Task<Location> GetNearestPark(int inputLat, int inputLon)
+        public async Task<Location> GetNearestPark(string inputLat, string inputLon)
         {
             var parkResult = await ParkLocationService.GetNearestPark(inputLat, inputLon);
             if (parkResult == null)

@@ -13,12 +13,18 @@ namespace MIST_353_Group_API.Repositories
         {
             _dbContextClass = dbContextClass;
         }
-        public async Task<Location> GetNearestPark(int inputLat, int inputLon)
+        public async Task<Location> GetNearestPark(string inputLat, string inputLon)
         {
-            var param = new SqlParameter("@inputLat", inputLat);
-            var param2 = new SqlParameter("@inputLon", inputLon);
-            var parkResult = await Task.Run(() => _dbContextClass.Location.FromSqlRaw("exec spGetNearestPark @inputLat, @inputLon", param, param2).FirstOrDefaultAsync());
+
+            var locations = _dbContextClass.Location
+                                            .FromSqlRaw("EXEC spGetNearestPark @inputLat, @inputLon",
+                                                        new SqlParameter("@inputLat", inputLat),
+                                                        new SqlParameter("@inputLon", inputLon))
+                                            .AsEnumerable(); 
+            var parkResult = locations.FirstOrDefault();
+
             return parkResult;
         }
+
     }
 }
