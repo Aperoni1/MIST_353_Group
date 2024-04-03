@@ -10,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<IParkLocationService, ParkLocationService>();
+builder.Services.AddScoped<IStateWeatherService, StateWeatherService>();
 builder.Services.AddDbContext<DbContextClass>(options =>
 {
 
