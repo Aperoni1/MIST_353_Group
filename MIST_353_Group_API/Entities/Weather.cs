@@ -9,6 +9,7 @@ namespace MIST_353_Group_API.Entities
         public int WeatherID { get; set; }
         public int LocationID { get; set; } // Foreign Key
         public Location Location { get; set; }
+       
 
         // Navigation property for FireWarnings 
         public ICollection<FireWarning> FireWarnings { get; set; }
