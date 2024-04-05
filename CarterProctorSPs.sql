@@ -1,18 +1,13 @@
-CREATE PROCEDURE CarterProctorSPs --Weather by park Name
+CREATE PROCEDURE CarterProctorSPs --Weather by Park Location
     @ParkName NVARCHAR(100)
 AS
 BEGIN
     SET NOCOUNT ON;
 
-    SELECT *
-    FROM Location
-    WHERE ParkName = @ParkName;
+    SELECT w.*
+    FROM Weather w
+    INNER JOIN Location l ON w.LocationID = l.LocationID
+    WHERE l.ParkName = @ParkName;
 
-    SELECT *
-    FROM Weather
-    WHERE LocationID IN (SELECT LocationID FROM Location WHERE ParkName = @ParkName);
 
-    SELECT *
-    FROM Fire_Warning
-    WHERE LocationID IN (SELECT LocationID FROM Location WHERE ParkName = @ParkName);
 END;
