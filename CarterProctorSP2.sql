@@ -1,22 +1,21 @@
-CREATE PROCEDURE CarterProctorSP2_GetWeatherByLocation
+CREATE PROCEDURE CarterProctorSP2 --Weather by location
     @LocationID INT
 AS
 BEGIN
-    DECLARE @Temperature DECIMAL(10, 2);
-    DECLARE @WeatherCondition NVARCHAR(100);
+    SET NOCOUNT ON;
 
-    -- Get the weather details for the given location
     SELECT 
-        @Temperature = [Temperature],
-        @WeatherCondition = [WeatherCondition]
+        W.WeatherID,
+        W.Temperature,
+        W.Humidity,
+        W.WindSpeed,
+        W.WeatherCondition,
+        L.LocationID,
+        L.ParkName
     FROM 
-        [dbo].[Weather]
+        dbo.Weather W
+    INNER JOIN 
+        dbo.Location L ON W.LocationID = L.LocationID
     WHERE 
-        [LocationID] = @LocationID;
-
-    -- Return weather details
-    SELECT 
-        @Temperature AS Temperature,
-        @WeatherCondition AS WeatherCondition;
+        W.LocationID = @LocationID;
 END;
-
