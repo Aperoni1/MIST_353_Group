@@ -27,13 +27,16 @@ namespace MIST_353_Group_API.Repositories
             return parkWeatherByName;
         }
 
-        public async Task<Weather> GetWeatherByLocation(int locationId)
+        public async Task<Weather> GetWeatherByLocation(int locationID)
         {
-            var result = await _dbContextClass.Weather
-                .FromSqlInterpolated($"EXEC CarterProctorSP2 {locationId}")
-                .FirstOrDefaultAsync();
+            var weathLoc =  _dbContextClass.Weather
+                .FromSqlRaw($"EXEC CarterProctorSP2, @locationID", new SqlParameter(@"locationID",locationID))
+                .AsEnumerable();
+            var WeatherLocation = weathLoc.FirstOrDefault();
 
-            return result;
+            return WeatherLocation;
+
+            
         }
     }
 }
