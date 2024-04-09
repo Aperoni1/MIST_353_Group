@@ -1,0 +1,13 @@
+﻿@page
+@model MIST_353_Group_Pages.Pages.ParkWeatherModel
+@{
+    ViewData["Title"] = "Park Weather";
+}
+
+<h1>Find the weather of your park</h1>
+
+<form method="get">
+    <label for="parkName">Enter park name:</label>
+    <input type="text" id="parkName" name="parkName" asp-for="ParkName" />
+    <button type="submit">Search</button>
+</form>
