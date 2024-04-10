@@ -5,7 +5,7 @@ BEGIN
     DECLARE @Status NVARCHAR(20);
     
     -- Check if there are any active fire warnings for the park
-    IF EXISTS (SELECT 1 FROM FireWarning fw JOIN Location l ON fw.LocationID = l.LocationID WHERE l.ParkName = @ParkName AND fw.Status = 'Active')
+    IF EXISTS (SELECT 1 FROM Fire_Warning fw JOIN Location l ON fw.LocationID = l.LocationID WHERE l.ParkName = @ParkName AND fw.Status = 'Active')
         SET @Status = 'Closed';
     ELSE
         SET @Status = 'Open';
