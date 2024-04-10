@@ -1,12 +1,11 @@
+using MIST_353_Group_API.Data;
+using MIST_353_Group_API.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<DbContextClass>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionStringName"));
-});
-
-// Register custom services
+builder.Services.AddRazorPages();
+builder.Services.AddScoped<DbContextClass>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 
 var app = builder.Build();
