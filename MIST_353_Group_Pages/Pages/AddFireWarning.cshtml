@@ -1,0 +1,33 @@
+﻿@page
+@model MIST_353_Group_Pages.Pages.AddFireWarningModel
+@{
+    ViewData["Title"] = "Add Fire Warning";
+}
+
+<h1>Add Fire Warning</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="locationId">Location ID:</label>
+        <input type="number" class="form-control" id="locationId" name="NewFireWarning.LocationID" asp-for="NewFireWarning.LocationID">
+    </div>
+    <div class="form-group">
+        <label for="weatherId">Weather ID:</label>
+        <input type="number" class="form-control" id="weatherId" name="NewFireWarning.WeatherID" asp-for="NewFireWarning.WeatherID">
+    </div>
+    <div class="form-group">
+        <label for="timeLastUpdated">Time Last Updated:</label>
+        <input type="datetime-local" class="form-control" id="timeLastUpdated" name="NewFireWarning.TimeLastUpdated" asp-for="NewFireWarning.TimeLastUpdated">
+    </div>
+    <div class="form-group">
+        <label for="timeFirstReported">Time First Reported:</label>
+        <input type="datetime-local" class="form-control" id="timeFirstReported" name="NewFireWarning.TimeFirstReported" asp-for="NewFireWarning.TimeFirstReported">
+    </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" class="form-control" id="status" name="NewFireWarning.Status" asp-for="NewFireWarning.Status">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+}
