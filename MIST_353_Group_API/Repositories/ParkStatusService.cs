@@ -21,7 +21,7 @@ namespace MIST_353_Group_API.Repositories
             await connection.OpenAsync();
 
             var command = connection.CreateCommand();
-            command.CommandText = "CheckParkStatus";
+            command.CommandText = "CarterProctorSP3";
             command.CommandType = System.Data.CommandType.StoredProcedure;
             command.Parameters.Add(new SqlParameter("@ParkName", parkName));
 
