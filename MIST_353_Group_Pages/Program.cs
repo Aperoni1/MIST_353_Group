@@ -16,6 +16,10 @@ builder.Services.AddScoped<IWeatherService, WeatherService>();
 // Add Razor Pages services
 builder.Services.AddRazorPages();
 
+//Add HTTP Client
+builder.Services.AddHttpClient();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
