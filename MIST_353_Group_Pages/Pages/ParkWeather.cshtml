@@ -8,6 +8,17 @@
 
 <form method="get">
     <label for="parkName">Enter park name:</label>
-    <input type="text" id="parkName" name="parkName" asp-for="ParkName" />
+    <input type="text" id="parkName" name="parkName" />
     <button type="submit">Search</button>
 </form>
+
+@if (ViewData["WeatherData"] != null)
+{
+    var weather = ViewData["WeatherData"] as MIST_353_Group_API.Entities.Weather;
+    <div>
+        <h2>Weather Details</h2>
+        <p>Temperature: @weather.Temperature</p>
+        <p>Humidity: @weather.Humidity</p>
+        <!-- Add more weather details as needed -->
+    </div>
+}

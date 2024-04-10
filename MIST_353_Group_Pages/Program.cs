@@ -1,7 +1,13 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddDbContext<DbContextClass>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("YourConnectionStringName"));
+});
+
+// Register custom services
+builder.Services.AddScoped<IWeatherService, WeatherService>();
 
 var app = builder.Build();
 

@@ -11,4 +11,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MIST_353_Group_API\MIST_353_Group_API.csproj" />
+  </ItemGroup>
+
 </Project>
