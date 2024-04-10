@@ -1,12 +1,20 @@
+using Microsoft.EntityFrameworkCore;
 using MIST_353_Group_API.Data;
 using MIST_353_Group_API.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
-builder.Services.AddScoped<DbContextClass>();
+builder.Services.AddDbContext<DbContextClass>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+// Register custom services
 builder.Services.AddScoped<IWeatherService, WeatherService>();
+
+// Add Razor Pages services
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -23,7 +31,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
 app.MapRazorPages();
 
