@@ -1,0 +1,21 @@
+﻿@page
+@model MIST_353_Group_Pages.Pages.ParkStatusModel
+@{
+    ViewData["Title"] = "Park Status";
+}
+
+<h1>Park Status</h1>
+
+<form method="get">
+    <label for="parkName">Enter park name:</label>
+    <input type="text" id="parkName" name="parkName" />
+    <button type="submit">Check Status</button>
+</form>
+
+@if (Model.Status != null)
+{
+    <div>
+        <h2>Status</h2>
+        <p>@Model.Status</p>
+    </div>
+}
