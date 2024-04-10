@@ -1,6 +1,14 @@
-CREATE PROCEDURE GetWeatherByID
-    @WeatherID INT
+CREATE PROCEDURE CarterProctorSP3
+    @ParkName NVARCHAR(100)
 AS
 BEGIN
-    SELECT * FROM [dbo].[Weather] WHERE [WeatherID] = @WeatherID;
+    DECLARE @Status NVARCHAR(20);
+    
+    -- Check if there are any active fire warnings for the park
+    IF EXISTS (SELECT 1 FROM FireWarning fw JOIN Location l ON fw.LocationID = l.LocationID WHERE l.ParkName = @ParkName AND fw.Status = 'Active')
+        SET @Status = 'Closed';
+    ELSE
+        SET @Status = 'Open';
+    
+    SELECT @Status AS ParkStatus;
 END;
