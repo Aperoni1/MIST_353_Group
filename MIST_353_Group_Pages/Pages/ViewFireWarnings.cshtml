@@ -1,0 +1,62 @@
+﻿@page
+@model MIST_353_Group_Pages.Pages.ViewFireWarningsModel
+@{
+    ViewData["Title"] = "Fire Warning Search";
+}
+
+<h1>Fire Warning Search</h1>
+
+<form method="get">
+    <div class="form-group">
+        <label for="locationId">Location ID:</label>
+        <input type="text" class="form-control" id="locationId" name="locationId">
+    </div>
+    <div class="form-group">
+        <label for="weatherId">Weather ID:</label>
+        <input type="text" class="form-control" id="weatherId" name="weatherId">
+    </div>
+    <div class="form-group">
+        <label for="timeLastUpdated">Time Last Updated:</label>
+        <input type="text" class="form-control" id="timeLastUpdated" name="timeLastUpdated">
+    </div>
+    <div class="form-group">
+        <label for="timeFirstReported">Time First Reported:</label>
+        <input type="text" class="form-control" id="timeFirstReported" name="timeFirstReported">
+    </div>
+    <div class="form-group">
+        <label for="status">Status:</label>
+        <input type="text" class="form-control" id="status" name="status">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Search</button>
+</form>
+
+@if (Model.SearchResults != null && Model.SearchResults.Any())
+{
+    <h2>Search Results</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Fire Warning ID</th>
+                <th>Location ID</th>
+                <th>Weather ID</th>
+                <th>Time Last Updated</th>
+                <th>Time First Reported</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var fireWarning in Model.SearchResults)
+            {
+                <tr>
+                    <td>@fireWarning.FireWarningID</td>
+                    <td>@fireWarning.LocationID</td>
+                    <td>@fireWarning.WeatherID</td>
+                    <td>@fireWarning.TimeLastUpdated</td>
+                    <td>@fireWarning.TimeFirstReported</td>
+                    <td>@fireWarning.Status</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
