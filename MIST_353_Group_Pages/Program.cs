@@ -14,6 +14,7 @@ builder.Services.AddDbContext<DbContextClass>(options =>
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<IParkStatusService, ParkStatusService>();
 builder.Services.AddScoped<IStateWeatherService, StateWeatherService>();
+builder.Services.AddScoped<IParkLocationService, ParkLocationService>();
 
 
 // Add Razor Pages services

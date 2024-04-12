@@ -1,0 +1,32 @@
+﻿@page
+@model MIST_353_Group_Pages.Pages.ParkLocationModel
+@{
+    ViewData["Title"] = "Find Nearest Park";
+}
+
+<h1>Find the Nearest Park</h1>
+
+<form method="get">
+    <label for="lat">Enter Latitude:</label>
+    <input type="text" id="lat" name="inputLat" />
+
+    <label for="long">Enter Longitude:</label>
+    <input type="text" id="long" name="inputLon" />
+
+    <button type="submit">Search</button>
+</form>
+
+@if (ViewData["ParkLocation"] != null)
+{
+    var Location = ViewData["ParkLocation"] as MIST_353_Group_API.Entities.Location;
+    <div>
+        <h2>Park Info</h2>
+        <p>Address: @Location.Address</p>
+        <p>City: @Location.City</p>
+        <p>State: @Location.State</p>
+        <p>Zip: @Location.Zip</p>
+        <p>Longitude: @Location.Long</p>
+        <p>Latitude: @Location.Lat</p>
+        <p>Park Name: @Location.ParkName</p>
+    </div>
+}
