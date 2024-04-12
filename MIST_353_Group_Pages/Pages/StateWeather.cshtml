@@ -1,0 +1,23 @@
+﻿@page
+@model MIST_353_Group_Pages.Pages.StateWeatherModel
+@{
+    ViewData["Title"] = "Weather by State Code";
+}
+
+<h1>Weather by State Code</h1>
+
+<form method="get">
+    <label for="State">Enter State Code:</label>
+    <input type="text" id="State" name="State" />
+    <button type="submit">Search</button>
+</form>
+
+@if (ViewData["StateWeatherData"] != null)
+{
+    var weather = ViewData["StateWeatherData"] as MIST_353_Group_API.Entities.Weather;
+    <div>
+        <h2>Weather Details</h2>
+        <p>Temperature: @weather.Temperature</p>
+        <p>Humidity: @weather.Humidity</p>
+    </div>
+}
