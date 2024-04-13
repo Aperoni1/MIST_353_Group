@@ -3,30 +3,50 @@
 @{
     ViewData["Title"] = "Find Nearest Park";
 }
+<!--ChatGPT Prompt: Make page look nice. There is already a bootstrip.css file-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Find Nearest Park</title>
+    <!-- Ensure that the Bootstrap CSS path is correct -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-3">Find the Nearest Park</h1>
 
-<h1>Find the Nearest Park</h1>
+        <form method="get" class="mb-4">
+            <div class="form-group">
+                <label for="lat" class="form-label">Enter Latitude:</label>
+                <input type="text" class="form-control" id="lat" name="inputLat" required>
+            </div>
 
-<form method="get">
-    <label for="lat">Enter Latitude:</label>
-    <input type="text" id="lat" name="inputLat" />
+            <div class="form-group">
+                <label for="long" class="form-label">Enter Longitude:</label>
+                <input type="text" class="form-control" id="long" name="inputLon" required>
+            </div>
 
-    <label for="long">Enter Longitude:</label>
-    <input type="text" id="long" name="inputLon" />
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
 
-    <button type="submit">Search</button>
-</form>
-
-@if (ViewData["ParkLocation"] != null)
-{
-    var Location = ViewData["ParkLocation"] as MIST_353_Group_API.Entities.Location;
-    <div>
-        <h2>Park Info</h2>
-        <p>Address: @Location.Address</p>
-        <p>City: @Location.City</p>
-        <p>State: @Location.State</p>
-        <p>Zip: @Location.Zip</p>
-        <p>Longitude: @Location.Long</p>
-        <p>Latitude: @Location.Lat</p>
-        <p>Park Name: @Location.ParkName</p>
+        @if (ViewData["ParkLocation"] != null)
+        {
+            var Location = ViewData["ParkLocation"] as MIST_353_Group_API.Entities.Location;
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Park Info</h2>
+                    <p class="card-text"><strong>Address:</strong> @Location.Address</p>
+                    <p class="card-text"><strong>City:</strong> @Location.City</p>
+                    <p class="card-text"><strong>State:</strong> @Location.State</p>
+                    <p class="card-text"><strong>Zip:</strong> @Location.Zip</p>
+                    <p class="card-text"><strong>Longitude:</strong> @Location.Long</p>
+                    <p class="card-text"><strong>Latitude:</strong> @Location.Lat</p>
+                    <p class="card-text"><strong>Park Name:</strong> @Location.ParkName</p>
+                </div>
+            </div>
+        }
     </div>
-}
+</body>
+</html>

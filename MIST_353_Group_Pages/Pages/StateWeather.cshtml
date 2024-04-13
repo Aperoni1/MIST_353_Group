@@ -3,21 +3,34 @@
 @{
     ViewData["Title"] = "Weather by State Code";
 }
+<!---ChatGPT Prompt: Take this page and make it look nice. There is already a bootstrap.css file->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather by State Code</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"> <!-- Path to your Bootstrap CSS -->
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">Weather by State Code</h1>
+        <form class="mb-4" method="get">
+            <div class="form-group">
+                <label for="State">Enter State Code:</label>
+                <input type="text" class="form-control" id="State" name="State" />
+            </div>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
 
-<h1>Weather by State Code</h1>
-
-<form method="get">
-    <label for="State">Enter State Code:</label>
-    <input type="text" id="State" name="State" />
-    <button type="submit">Search</button>
-</form>
-
-@if (ViewData["StateWeatherData"] != null)
-{
-    var weather = ViewData["StateWeatherData"] as MIST_353_Group_API.Entities.Weather;
-    <div>
-        <h2>Weather Details</h2>
-        <p>Temperature: @weather.Temperature</p>
-        <p>Humidity: @weather.Humidity</p>
+        @if (ViewData["StateWeatherData"] != null)
+        {
+            var weather = ViewData["StateWeatherData"] as MIST_353_Group_API.Entities.Weather;
+            <div>
+                <h2>Weather Details</h2>
+                <p>Temperature: @weather.Temperature</p>
+                <p>Humidity: @weather.Humidity</p>
+            </div>
+        }
     </div>
-}
+</body>
+</html>

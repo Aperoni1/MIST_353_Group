@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿<!--ChatGPT 4.0 Prompt: Make this navbar cleaner and add buttons. Make sure the text can fit right-->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,46 +8,79 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MIST_353_Group_Pages.styles.css" asp-append-version="true" />
+    <style>
+        .navbar-custom {
+            background-color: #ffffff;
+            border-bottom: 2px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #0056b3;
+        }
+
+        .nav-link {
+            background-color: #f8f9fa;
+            color: #555;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            padding: 8px 12px; /* Slightly reduced padding */
+            white-space: nowrap; /* Prevents text from wrapping */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Adds an ellipsis if text is too long */
+        }
+
+            .nav-link:hover, .nav-link:focus {
+                background-color: #0056b3;
+                color: #ffffff;
+                border-color: #004494;
+            }
+
+        .navbar-nav {
+            width: 100%;
+            justify-content: space-around; /* Distributes space evenly */
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light navbar-custom mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">MIST_353_Group_Pages</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">ZanyZoomer Enterprises Weather</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                       
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/ParkWeather">Find The Weather For Your Park</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ParkWeather">Park Weather</a>
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/ParkStatus">Find The Status Of Your Park</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ParkStatus">Park Status</a>
                         </li>
-                       
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/ParkLocation">Find The Nearest Park</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ParkLocation">Nearest Parks</a>
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/StateWeather">Find The Status Of Your State</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/StateWeather">State Weather</a>
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/ViewFireWarnings">See Fire Warnings</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/ViewFireWarnings">Fire Warnings</a>
                         </li>
-                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/AddFireWarning">Add A Fire Warning Here</a>
-
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AddFireWarning">Add Fire Warning</a>
                         </li>
                     </ul>
                 </div>
@@ -58,17 +92,14 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - MIST_353_Group_Pages - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
