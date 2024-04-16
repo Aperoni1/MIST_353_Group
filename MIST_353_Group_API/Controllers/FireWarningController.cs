@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MIST_353_Group_API.Entities;
+using MIST_353_Group_API.Repositories;
 
 namespace MIST_353_Group_API.Controllers
 {
@@ -7,12 +8,11 @@ namespace MIST_353_Group_API.Controllers
     [ApiController]
     public class FireWarningController : ControllerBase
     {
-        private readonly List<FireWarning> _fireWarnings; 
+        private readonly IFireWarningRepository _fireWarningRepository;
 
-        public FireWarningController()
+        public FireWarningController(IFireWarningRepository fireWarningRepository)
         {
-            // Initialize in-memory storage
-            _fireWarnings = new List<FireWarning>();
+            _fireWarningRepository = fireWarningRepository;
         }
 
         // POST: api/firewarning
@@ -24,18 +24,16 @@ namespace MIST_353_Group_API.Controllers
                 return BadRequest(ModelState);
             }
 
-          
-            fireWarning.FireWarningID = _fireWarnings.Count + 1;
-            _fireWarnings.Add(fireWarning);
+            _fireWarningRepository.CreateFireWarning(fireWarning);
 
+            // Optionally return a response with the created resource
             return CreatedAtAction(nameof(GetFireWarning), new { id = fireWarning.FireWarningID }, fireWarning);
         }
 
-        // GET: api/firewarning/{id}
         [HttpGet("{id}")]
-        public IActionResult GetFireWarning(int id)
+        public async Task<IActionResult> GetFireWarning(int id)
         {
-            var fireWarning = _fireWarnings.Find(fw => fw.FireWarningID == id);
+            var fireWarning = await _fireWarningRepository.GetFireWarningById(id);
 
             if (fireWarning == null)
             {

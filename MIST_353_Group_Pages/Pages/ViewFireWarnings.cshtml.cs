@@ -1,37 +1,30 @@
-using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MIST_353_Group_API.Entities;
+using MIST_353_Group_API.Repositories;
 
 namespace MIST_353_Group_Pages.Pages
 {
     public class ViewFireWarningsModel : PageModel
     {
-        private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IFireWarningRepository _fireWarningRepository;
 
-        public ViewFireWarningsModel(IHttpClientFactory httpClientFactory)
+        public ViewFireWarningsModel(IFireWarningRepository fireWarningRepository)
         {
-            _httpClientFactory = httpClientFactory;
+            _fireWarningRepository = fireWarningRepository;
         }
 
         public IList<FireWarning> SearchResults { get; set; }
 
-        public async Task OnGetAsync(int? locationId, int? weatherId, DateTime? timeLastUpdated, DateTime? timeFirstReported, string status)
+        public async Task OnGetAsync()
         {
-            var httpClient = _httpClientFactory.CreateClient();
+            // Call the GetFireWarnings method from the repository
+            var fireWarnings = await _fireWarningRepository.GetFireWarnings();
 
-            var apiUrl = $"https://localhost:7183/api/FireWarning?locationId={locationId}&weatherId={weatherId}&timeLastUpdated={timeLastUpdated}&timeFirstReported={timeFirstReported}&status={status}";
-
-            var response = await httpClient.GetAsync(apiUrl);
-
-            if (response.IsSuccessStatusCode)
-            {
-                SearchResults = await response.Content.ReadFromJsonAsync<List<FireWarning>>();
-            }
-            else
-            {
-                SearchResults = new List<FireWarning>();
-            }
+            // Explicitly convert the result to IList<FireWarning>
+            SearchResults = new List<FireWarning>(fireWarnings);
         }
     }
 }
-

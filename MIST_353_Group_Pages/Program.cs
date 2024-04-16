@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.EntityFrameworkCore;
 using MIST_353_Group_API.Data;
 using MIST_353_Group_API.Repositories;
@@ -15,7 +16,7 @@ builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<IParkStatusService, ParkStatusService>();
 builder.Services.AddScoped<IStateWeatherService, StateWeatherService>();
 builder.Services.AddScoped<IParkLocationService, ParkLocationService>();
-
+builder.Services.AddScoped<IFireWarningRepository, FireWarningRepository>();
 
 // Add Razor Pages services
 builder.Services.AddRazorPages();
