@@ -3,32 +3,40 @@
 @{
     ViewData["Title"] = "Weather by State Code";
 }
-<!---ChatGPT Prompt: Take this page and make it look nice. There is already a bootstrap.css file->
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather by State Code</title>
-    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css"> <!-- Path to your Bootstrap CSS -->
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Weather by State Code</h1>
         <form class="mb-4" method="get">
-            <div class="form-group">
-                <label for="State">Enter State Code:</label>
-                <input type="text" class="form-control" id="State" name="State" />
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="State">Enter State Code:</label>
+                        <input type="text" class="form-control" id="State" name="State">
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Search</button>
         </form>
 
         @if (ViewData["StateWeatherData"] != null)
         {
             var weather = ViewData["StateWeatherData"] as MIST_353_Group_API.Entities.Weather;
-            <div>
-                <h2>Weather Details</h2>
-                <p>Temperature: @weather.Temperature</p>
-                <p>Humidity: @weather.Humidity</p>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h2 class="card-title">Weather Details</h2>
+                    <p class="card-text"><strong>Temperature:</strong> @weather.Temperature</p>
+                    <p class="card-text"><strong>Humidity:</strong> @weather.Humidity</p>
+                </div>
             </div>
         }
     </div>

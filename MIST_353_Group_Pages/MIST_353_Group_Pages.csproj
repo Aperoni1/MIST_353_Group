@@ -15,4 +15,8 @@
     <ProjectReference Include="..\MIST_353_Group_API\MIST_353_Group_API.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

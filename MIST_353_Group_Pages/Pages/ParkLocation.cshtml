@@ -3,14 +3,13 @@
 @{
     ViewData["Title"] = "Find Nearest Park";
 }
-<!--ChatGPT Prompt: Make page look nice. There is already a bootstrip.css file-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - Find Nearest Park</title>
-    <!-- Ensure that the Bootstrap CSS path is correct -->
+    
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
@@ -18,14 +17,19 @@
         <h1 class="mb-3">Find the Nearest Park</h1>
 
         <form method="get" class="mb-4">
-            <div class="form-group">
-                <label for="lat" class="form-label">Enter Latitude:</label>
-                <input type="text" class="form-control" id="lat" name="inputLat" required>
-            </div>
-
-            <div class="form-group">
-                <label for="long" class="form-label">Enter Longitude:</label>
-                <input type="text" class="form-control" id="long" name="inputLon" required>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="lat" class="form-label">Enter Latitude:</label>
+                        <input type="text" class="form-control" id="lat" name="inputLat" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="long" class="form-label">Enter Longitude:</label>
+                        <input type="text" class="form-control" id="long" name="inputLon" required>
+                    </div>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary">Search</button>
