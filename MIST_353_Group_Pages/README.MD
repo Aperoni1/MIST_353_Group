@@ -1,4 +1,5 @@
-﻿Park Safety and Weather Information Web Application
+
+Park Safety and Weather Information Web Application
 Introduction
 
 This project aims to provide users with essential safety and weather information related to parks. Whether users are planning a visit to a specific park or want to explore nearby options, this web application offers a convenient way to access crucial data. With a growing dataset and robust functionality, our goal is to ensure users can make informed decisions and stay safe during their outdoor adventures.
@@ -18,6 +19,11 @@ As part of this project, my contributions include the development of two Razor p
     ParkStatus: This page determines the park's status (open or closed) based on active fire warnings, utilizing the stored procedure CarterProctorSP3.
     WeatherByLocationID (Future Feature): While not currently available upon launch, this page allows users to input a location ID number to retrieve weather information. Although functional, it's not included in the active web pages as of now.
 
+Ben Bartlett's Contribution
+
+	FindNearestPark: This page take an input latitude and longitude and returns the nearest park in the database to those inputs. It returns the full address and park name, using BenBartlettSP2.sql
+	StateWeather: This page returns the average weather for a state using BenBartlettSP1.sql. It takes the input of a state's two letter code.
+
 Technical Details
 
 The web application is built using Razor Pages with C# code behind for server-side processing. We utilize stored procedures to efficiently retrieve data from the database, ensuring fast and accurate results. Future development may include incorporating additional technologies or frameworks to enhance performance and user experience.
@@ -26,6 +32,7 @@ Future Features
     Integration of the WeatherByLocationID page to provide users with more flexibility in accessing weather data.
     Enhanced search functionality to allow users to find parks based on various criteria such as location, amenities, or safety ratings.
     Incorporation of user authentication and personalized features to tailor the experience to individual preferences.
+	Integrating with NOAA API and the National Wild Fire database
 
 Resources
 
