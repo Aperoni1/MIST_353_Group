@@ -24,7 +24,7 @@ I contributed two Razor Pages that worked with the two APIs that I made for assi
 
     AddFireWarning: This page allows users to add fire warnings to the database. The page allows the user to input the date first reported, date last updated, status, and the location that the warning is associated with. This page uses the stored procedure AlexPeroniSPs.
     ViewFireWarnings: This page displays all the fire warnings in the database. ViewFireWarnings uses the stored procedure AlexPeroniSP2.
-    APIs: The two APIs I made are both in the FireWarningRepository and their error handling is done in the FireWarningController. CreateFireWarning is a post command that sends the data the user inputs to the database. GetFireWarning is a get command that pulls all of            the information in the Fire_Warning table in the database.
+    APIs: The two APIs I made are both in the FireWarningRepository and their error handling is done in the FireWarningController. CreateFireWarning is a post command that sends the data the user inputs to the database. GetFireWarning is a get command that pulls the information in the Fire_Warning table in the database.
 
 Technical Details
 
