@@ -12,10 +12,10 @@ The web application currently consists of several key features:
 
 Carter Proctor’s Contribution
 
-As part of this project, my contributions include the development of two Razor pages with C# code behind:
+As part of this project, my contributions include the development of two Razor pages with C# code behind, and providing the background photo and code for it to run on the index page:
 
-    ParkWeather: This page retrieves weather data for a specified park using the stored procedure CarterProctorSP2. Users can input the park's name to receive accurate weather updates.
-    ParkStatus: This page determines the park's status (open or closed) based on active fire warnings, utilizing the stored procedure CarterProctorSP3.
+    CarterProctorSPs(ParkWeather): This page retrieves weather data for a specified park using the stored procedure CarterProctorSP2. Users can input the park's name to receive accurate weather updates.
+    CarterProctorSP3 (ParkStatus): This page determines the park's status (open or closed) based on active fire warnings, utilizing the stored procedure CarterProctorSP3.
     WeatherByLocationID (Future Feature): While not currently available upon launch, this page allows users to input a location ID number to retrieve weather information. Although functional, it's not included in the active web pages as of now.
 
 Alex Peroni's Contribution
