@@ -18,6 +18,14 @@ As part of this project, my contributions include the development of two Razor p
     ParkStatus: This page determines the park's status (open or closed) based on active fire warnings, utilizing the stored procedure CarterProctorSP3.
     WeatherByLocationID (Future Feature): While not currently available upon launch, this page allows users to input a location ID number to retrieve weather information. Although functional, it's not included in the active web pages as of now.
 
+Alex Peroni's Contribution
+
+I contributed two Razor Pages that worked with the two APIs that I made for assighnment 4.
+
+    AddFireWarning: This page allows users to add fire warnings to the database. The page allows the user to input the date first reported, date last updated, status, and the location that the warning is associated with. This page uses the stored procedure AlexPeroniSPs.
+    ViewFireWarnings: This page displays all the fire warnings in the database. ViewFireWarnings uses the stored procedure AlexPeroniSP2.
+APIs: The two APIs I made are both in the FireWarningRepository and their error handling is done in the FireWarningController. CreateFireWarning is a post command that sends the data the user inputs to the database. GetFireWarning is a get command that pulls all of          the information in the Fire_Warning table in the database.
+
 Technical Details
 
 The web application is built using Razor Pages with C# code behind for server-side processing. We utilize stored procedures to efficiently retrieve data from the database, ensuring fast and accurate results. Future development may include incorporating additional technologies or frameworks to enhance performance and user experience.
